@@ -1,912 +1,421 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Terms of Use for Kashefhom - Kuwait Number Book">
-    <title>Terms of Use | Kashefhom</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --primary: #f59e0b;
-            --primary-dark: #d97706;
-            --secondary: #fbbf24;
-            --accent: #fb923c;
-            --bg-dark: #1a1008;
-            --bg-darker: #0f0a05;
-            --text-primary: #fef3c7;
-            --text-secondary: #d6bc9a;
-            --text-muted: #8b7355;
-            --glass: rgba(251, 191, 36, 0.05);
-            --glass-border: rgba(251, 191, 36, 0.1);
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Inter', 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-darker);
-            color: var(--text-primary);
-            line-height: 1.8;
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background:
-                radial-gradient(circle at 20% 20%, rgba(245, 158, 11, 0.12) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(251, 146, 60, 0.12) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.06) 0%, transparent 60%);
-            animation: bgFloat 20s ease-in-out infinite;
-            z-index: -2;
-        }
-
-        @keyframes bgFloat {
-            0%, 100% { transform: scale(1) translate(0, 0); }
-            50% { transform: scale(1.1) translate(-20px, 20px); }
-        }
-
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image:
-                linear-gradient(rgba(251, 191, 36, 0.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(251, 191, 36, 0.025) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero {
-            padding: 60px 30px 50px;
-            text-align: center;
-            position: relative;
-            border-radius: 32px;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(251, 146, 60, 0.05));
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            margin-bottom: 40px;
-            overflow: hidden;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: conic-gradient(from 0deg, transparent, rgba(251, 191, 36, 0.15), transparent 30%);
-            animation: rotate 15s linear infinite;
-            z-index: -1;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .shield-icon {
-            width: 90px; height: 90px;
-            margin: 0 auto 25px;
-            display: flex;
-            align-items: center; justify-content: center;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #f59e0b, #fb923c, #fbbf24);
-            box-shadow:
-                0 20px 40px rgba(245, 158, 11, 0.4),
-                0 0 80px rgba(251, 146, 60, 0.3),
-                inset 0 2px 10px rgba(255, 255, 255, 0.2);
-            animation: pulse 3s ease-in-out infinite;
-            position: relative;
-        }
-
-        .shield-icon::after {
-            content: '';
-            position: absolute;
-            inset: -3px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #f59e0b, #fb923c, #fbbf24);
-            filter: blur(15px);
-            opacity: 0.6;
-            z-index: -1;
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .shield-icon svg {
-            width: 45px; height: 45px;
-            color: white;
-            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
-        }
-
-        .app-name {
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 4px;
-            color: var(--secondary);
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            opacity: 0.9;
-        }
-
-        .hero h1 {
-            font-size: clamp(28px, 5vw, 42px);
-            font-weight: 900;
-            background: linear-gradient(135deg, #ffffff 0%, #fbbf24 50%, #fb923c 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 16px;
-            line-height: 1.3;
-        }
-
-        .hero p {
-            color: var(--text-secondary);
-            font-size: 15px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .last-updated {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 22px;
-            padding: 8px 18px;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 100px;
-            font-size: 12px;
-            color: var(--text-secondary);
-            backdrop-filter: blur(10px);
-        }
-
-        .last-updated svg {
-            width: 14px; height: 14px;
-            color: var(--secondary);
-        }
-
-        .lang-toggle {
-            display: flex;
-            justify-content: center;
-            gap: 6px;
-            margin-bottom: 30px;
-            padding: 6px;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 100px;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-            backdrop-filter: blur(10px);
-            animation: fadeInUp 0.8s ease-out 0.1s both;
-        }
-
-        .lang-toggle button {
-            padding: 10px 24px;
-            border: none;
-            background: transparent;
-            color: var(--text-secondary);
-            font-family: inherit;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            border-radius: 100px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .lang-toggle button:hover { color: var(--text-primary); }
-
-        .lang-toggle button.active {
-            background: linear-gradient(135deg, #f59e0b, #fb923c);
-            color: white;
-            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
-            transform: scale(1.02);
-        }
-
-        .content-card {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 40px 35px;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            box-shadow:
-                0 20px 60px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section {
-            margin-bottom: 35px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .section:nth-child(1) { animation-delay: 0.3s; }
-        .section:nth-child(2) { animation-delay: 0.4s; }
-        .section:nth-child(3) { animation-delay: 0.5s; }
-        .section:nth-child(4) { animation-delay: 0.6s; }
-        .section:nth-child(5) { animation-delay: 0.7s; }
-        .section:nth-child(6) { animation-delay: 0.8s; }
-        .section:nth-child(7) { animation-delay: 0.9s; }
-        .section:nth-child(8) { animation-delay: 1.0s; }
-        .section:nth-child(9) { animation-delay: 1.1s; }
-        .section:nth-child(10) { animation-delay: 1.2s; }
-        .section:nth-child(11) { animation-delay: 1.3s; }
-
-        .section:last-child { margin-bottom: 0; }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 16px;
-        }
-
-        .section-number {
-            flex-shrink: 0;
-            width: 40px; height: 40px;
-            display: flex;
-            align-items: center; justify-content: center;
-            border-radius: 12px;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(251, 146, 60, 0.1));
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            color: var(--secondary);
-            font-weight: 700;
-            font-size: 16px;
-        }
-
-        .section h2 {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-primary);
-            letter-spacing: 0.3px;
-        }
-
-        .section p {
-            color: var(--text-secondary);
-            font-size: 15px;
-            margin-bottom: 12px;
-            line-height: 1.9;
-        }
-
-        .section ul {
-            list-style: none;
-            padding: 0;
-            margin: 14px 0;
-        }
-
-        .section ul li {
-            position: relative;
-            padding: 10px 0 10px 32px;
-            color: var(--text-secondary);
-            font-size: 15px;
-            line-height: 1.7;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-        }
-
-        [dir="rtl"] .section ul li {
-            padding-left: 0;
-            padding-right: 32px;
-        }
-
-        .section ul li:last-child { border-bottom: none; }
-
-        .section ul li::before {
-            content: '';
-            position: absolute;
-            left: 8px; top: 20px;
-            width: 8px; height: 8px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            box-shadow: 0 0 12px rgba(245, 158, 11, 0.6);
-        }
-
-        [dir="rtl"] .section ul li::before {
-            left: auto;
-            right: 8px;
-        }
-
-        .section strong { color: var(--secondary); font-weight: 700; }
-
-        .warning-box {
-            display: flex;
-            gap: 12px;
-            padding: 16px 20px;
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.05));
-            border: 1px solid rgba(239, 68, 68, 0.25);
-            border-radius: 16px;
-            margin: 16px 0;
-            align-items: flex-start;
-        }
-
-        .warning-box svg {
-            width: 22px; height: 22px;
-            color: #f87171;
-            flex-shrink: 0;
-            margin-top: 3px;
-        }
-
-        .warning-box p {
-            color: #fca5a5;
-            font-size: 14px;
-            margin: 0;
-            line-height: 1.7;
-        }
-
-        .info-box {
-            display: flex;
-            gap: 12px;
-            padding: 16px 20px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.05));
-            border: 1px solid rgba(59, 130, 246, 0.25);
-            border-radius: 16px;
-            margin: 16px 0;
-            align-items: flex-start;
-        }
-
-        .info-box svg {
-            width: 22px; height: 22px;
-            color: #60a5fa;
-            flex-shrink: 0;
-            margin-top: 3px;
-        }
-
-        .info-box p {
-            color: #93c5fd;
-            font-size: 14px;
-            margin: 0;
-            line-height: 1.7;
-        }
-
-        .email-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 22px;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(251, 146, 60, 0.1));
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            border-radius: 14px;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .email-link:hover {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(251, 146, 60, 0.2));
-            border-color: rgba(245, 158, 11, 0.6);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
-        }
-
-        .email-link svg { width: 18px; height: 18px; color: var(--secondary); }
-
-        .hidden { display: none !important; }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--text-muted);
-            font-size: 13px;
-        }
-
-        footer .footer-logo {
-            font-weight: 700;
-            background: linear-gradient(135deg, #f59e0b, #fb923c, #fbbf24);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-size: 15px;
-            margin-bottom: 6px;
-            display: block;
-        }
-
-        .top-bar {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #f59e0b, #fb923c, #fbbf24, #f59e0b);
-            background-size: 300% 100%;
-            animation: slideGradient 4s linear infinite;
-            z-index: 1000;
-        }
-
-        @keyframes slideGradient {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 300% 50%; }
-        }
-
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: var(--bg-darker); }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #f59e0b, #fb923c);
-            border-radius: 10px;
-            border: 2px solid var(--bg-darker);
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, #d97706, #ea580c);
-        }
-
-        @media (max-width: 640px) {
-            .container { padding: 12px; }
-            .hero { padding: 45px 20px 35px; border-radius: 24px; }
-            .shield-icon { width: 75px; height: 75px; }
-            .shield-icon svg { width: 38px; height: 38px; }
-            .content-card { padding: 28px 22px; border-radius: 20px; }
-            .section h2 { font-size: 17px; }
-            .section p, .section ul li { font-size: 14px; }
-            .section-number { width: 34px; height: 34px; font-size: 14px; }
-            .lang-toggle button { padding: 9px 18px; font-size: 13px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Terms of Use for Kashefhom - Kuwait Number Book">
+<title>Terms of Use | Kashefhom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#f59e0b;--secondary:#fbbf24;--accent:#fb923c;--bg-darker:#0f0a05;--text-primary:#fef3c7;--text-secondary:#d6bc9a;--text-muted:#8b7355;--glass:rgba(251,191,36,0.05);--glass-border:rgba(251,191,36,0.1)}
+html{scroll-behavior:smooth}
+body{font-family:'Inter','Cairo',sans-serif;background:var(--bg-darker);color:var(--text-primary);line-height:1.8;min-height:100vh;overflow-x:hidden;position:relative}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 20% 20%,rgba(245,158,11,0.12) 0%,transparent 50%),radial-gradient(circle at 80% 80%,rgba(251,146,60,0.12) 0%,transparent 50%),radial-gradient(circle at 50% 50%,rgba(251,191,36,0.06) 0%,transparent 60%);animation:bgFloat 20s ease-in-out infinite;z-index:-2}
+@keyframes bgFloat{0%,100%{transform:scale(1) translate(0,0)}50%{transform:scale(1.1) translate(-20px,20px)}}
+body::after{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:linear-gradient(rgba(251,191,36,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(251,191,36,0.025) 1px,transparent 1px);background-size:50px 50px;z-index:-1;pointer-events:none}
+.container{max-width:900px;margin:0 auto;padding:20px;position:relative;z-index:1}
+.hero{padding:60px 30px 50px;text-align:center;position:relative;border-radius:32px;background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(251,146,60,0.05));border:1px solid var(--glass-border);backdrop-filter:blur(20px);margin-bottom:40px;overflow:hidden;animation:fadeInUp 0.8s ease-out}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent,rgba(251,191,36,0.15),transparent 30%);animation:rotate 15s linear infinite;z-index:-1}
+@keyframes rotate{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.shield-icon{width:90px;height:90px;margin:0 auto 25px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#fb923c,#fbbf24);box-shadow:0 20px 40px rgba(245,158,11,0.4),0 0 80px rgba(251,146,60,0.3);animation:pulse 3s ease-in-out infinite;position:relative}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.shield-icon svg{width:45px;height:45px;color:white}
+.app-name{font-size:14px;font-weight:600;letter-spacing:4px;color:var(--secondary);margin-bottom:12px;text-transform:uppercase;opacity:0.9}
+.hero h1{font-size:clamp(28px,5vw,42px);font-weight:900;background:linear-gradient(135deg,#ffffff 0%,#fbbf24 50%,#fb923c 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px;line-height:1.3}
+.hero p{color:var(--text-secondary);font-size:15px;max-width:600px;margin:0 auto}
+.last-updated{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:8px 18px;background:var(--glass);border:1px solid var(--glass-border);border-radius:100px;font-size:12px;color:var(--text-secondary)}
+.last-updated svg{width:14px;height:14px;color:var(--secondary)}
+.lang-toggle{display:flex;justify-content:center;gap:6px;margin-bottom:30px;padding:6px;background:var(--glass);border:1px solid var(--glass-border);border-radius:100px;width:fit-content;margin-left:auto;margin-right:auto;animation:fadeInUp 0.8s ease-out 0.1s both}
+.lang-toggle button{padding:10px 24px;border:none;background:transparent;color:var(--text-secondary);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;border-radius:100px;transition:all 0.3s}
+.lang-toggle button.active{background:linear-gradient(135deg,#f59e0b,#fb923c);color:white;box-shadow:0 8px 20px rgba(245,158,11,0.4)}
+.content-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:24px;padding:40px 35px;backdrop-filter:blur(20px);box-shadow:0 20px 60px rgba(0,0,0,0.3);animation:fadeInUp 0.8s ease-out 0.2s both}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.section{margin-bottom:35px;opacity:0;transform:translateY(20px);animation:fadeInUp 0.6s ease-out forwards}
+.section:nth-child(1){animation-delay:0.3s}.section:nth-child(2){animation-delay:0.4s}.section:nth-child(3){animation-delay:0.5s}.section:nth-child(4){animation-delay:0.6s}.section:nth-child(5){animation-delay:0.7s}.section:nth-child(6){animation-delay:0.8s}.section:nth-child(7){animation-delay:0.9s}.section:nth-child(8){animation-delay:1s}.section:nth-child(9){animation-delay:1.1s}.section:nth-child(10){animation-delay:1.2s}.section:nth-child(11){animation-delay:1.3s}.section:nth-child(12){animation-delay:1.4s}.section:nth-child(13){animation-delay:1.5s}
+.section:last-child{margin-bottom:0}
+.section-header{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.section-number{flex-shrink:0;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:linear-gradient(135deg,rgba(245,158,11,0.2),rgba(251,146,60,0.1));border:1px solid rgba(245,158,11,0.3);color:var(--secondary);font-weight:700;font-size:16px}
+.section h2{font-size:20px;font-weight:700;color:var(--text-primary)}
+.section p{color:var(--text-secondary);font-size:15px;margin-bottom:12px;line-height:1.9}
+.section ul{list-style:none;padding:0;margin:14px 0}
+.section ul li{position:relative;padding:10px 0 10px 32px;color:var(--text-secondary);font-size:15px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,0.03)}
+[dir="rtl"] .section ul li{padding-left:0;padding-right:32px}
+.section ul li:last-child{border-bottom:none}
+.section ul li::before{content:'';position:absolute;left:8px;top:20px;width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));box-shadow:0 0 12px rgba(245,158,11,0.6)}
+[dir="rtl"] .section ul li::before{left:auto;right:8px}
+.section strong{color:var(--secondary);font-weight:700}
+.warning-box{display:flex;gap:12px;padding:16px 20px;background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(220,38,38,0.05));border:1px solid rgba(239,68,68,0.25);border-radius:16px;margin:16px 0;align-items:flex-start}
+.warning-box svg{width:22px;height:22px;color:#f87171;flex-shrink:0;margin-top:3px}
+.warning-box p{color:#fca5a5;font-size:14px;margin:0;line-height:1.7}
+.info-box{display:flex;gap:12px;padding:16px 20px;background:linear-gradient(135deg,rgba(59,130,246,0.1),rgba(37,99,235,0.05));border:1px solid rgba(59,130,246,0.25);border-radius:16px;margin:16px 0;align-items:flex-start}
+.info-box svg{width:22px;height:22px;color:#60a5fa;flex-shrink:0;margin-top:3px}
+.info-box p{color:#93c5fd;font-size:14px;margin:0;line-height:1.7}
+.email-link{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:linear-gradient(135deg,rgba(245,158,11,0.15),rgba(251,146,60,0.1));border:1px solid rgba(245,158,11,0.3);border-radius:14px;color:var(--text-primary);text-decoration:none;font-weight:600;font-size:14px;transition:all 0.3s;margin-top:10px}
+.email-link:hover{background:linear-gradient(135deg,rgba(245,158,11,0.3),rgba(251,146,60,0.2));transform:translateY(-2px);box-shadow:0 10px 25px rgba(245,158,11,0.3)}
+.email-link svg{width:18px;height:18px;color:var(--secondary)}
+.hidden{display:none!important}
+footer{text-align:center;padding:40px 20px;color:var(--text-muted);font-size:13px}
+footer .footer-logo{font-weight:700;background:linear-gradient(135deg,#f59e0b,#fb923c,#fbbf24);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-size:15px;margin-bottom:6px;display:block}
+.top-bar{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#f59e0b,#fb923c,#fbbf24,#f59e0b);background-size:300% 100%;animation:slideGradient 4s linear infinite;z-index:1000}
+@keyframes slideGradient{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:var(--bg-darker)}::-webkit-scrollbar-thumb{background:linear-gradient(135deg,#f59e0b,#fb923c);border-radius:10px;border:2px solid var(--bg-darker)}
+@media(max-width:640px){.container{padding:12px}.hero{padding:45px 20px 35px;border-radius:24px}.shield-icon{width:75px;height:75px}.content-card{padding:28px 22px;border-radius:20px}.section h2{font-size:17px}.section p,.section ul li{font-size:14px}}
+</style>
 </head>
 <body>
+<div class="top-bar"></div>
+<div class="container">
+<div class="hero">
+<div class="shield-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+</div>
+<div class="app-name">KASHEFHOM • كاشفهم</div>
+<h1 id="hero-title">Terms of Use</h1>
+<p id="hero-subtitle">Clear and fair usage agreement</p>
+<div class="last-updated">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+<span id="last-updated-text">Last updated: September 17, 2026</span>
+</div>
+</div>
+<div class="lang-toggle">
+<button id="btn-en" class="active" onclick="showLang('en')">🇬🇧 English</button>
+<button id="btn-ar" onclick="showLang('ar')">🇰🇼 العربية</button>
+</div>
 
-    <div class="top-bar"></div>
+<!-- ENGLISH -->
+<div id="content-en">
+<div class="content-card">
 
-    <div class="container">
+<div class="section">
+<div class="section-header"><div class="section-number">1</div><h2>Acceptance of Terms</h2></div>
+<p>By using the <strong>"Kashefhom: Kuwait Number Book"</strong> app, you agree to comply with these terms and conditions. If you do not agree with any of these terms, please stop using the app.</p>
+</div>
 
-        <div class="hero">
-            <div class="shield-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                    <line x1="16" y1="13" x2="8" y2="13"/>
-                    <line x1="16" y1="17" x2="8" y2="17"/>
-                </svg>
-            </div>
+<div class="section">
+<div class="section-header"><div class="section-number">2</div><h2>Service Description</h2></div>
+<p>The "Kashefhom" app provides the following services:</p>
+<ul>
+<li>Caller ID identification for incoming numbers.</li>
+<li>Search the Kuwait number directory by name or number.</li>
+<li><strong>Number Protection Feature:</strong> Hide your number from public search results.</li>
+<li><strong>Voluntary Contributions:</strong> Add new numbers to the directory using Android's Contact Picker or manual entry.</li>
+<li><strong>Rewards System:</strong> Earn points and redeem them for in-app features (themes, sounds, badges, avatar frames).</li>
+<li><strong>Referral Program:</strong> Invite friends and earn bonus points.</li>
+<li><strong>Profile:</strong> Display name and avatar emoji customization.</li>
+<li>A diverse library of WhatsApp and Telegram stickers.</li>
+<li>VIP reports for advanced number analysis.</li>
+</ul>
+</div>
 
-            <div class="app-name">KASHEFHOM • كاشفهم</div>
+<div class="section">
+<div class="section-header"><div class="section-number">3</div><h2>Usage Terms</h2></div>
+<p>When using the app, you agree to:</p>
+<ul>
+<li>Use the app only for lawful purposes.</li>
+<li>Not use the app for harassment, annoyance, or fraud.</li>
+<li>Not attempt to hack the app, server, or manipulate its data.</li>
+<li>Not use the app for any illegal purpose in Kuwait or any other country.</li>
+<li>Not misuse the caller ID feature to harass others.</li>
+<li>Not abuse the number protection or contribution features.</li>
+<li>Not attempt to reverse engineer, decompile, or extract secrets from the app.</li>
+</ul>
+</div>
 
-            <h1 id="hero-title">Terms of Use</h1>
-            <p id="hero-subtitle">Clear and fair usage agreement</p>
+<div class="section">
+<div class="section-header"><div class="section-number">4</div><h2>Voluntary Contributions</h2></div>
+<p>When you contribute a number to the directory, you acknowledge and warrant that:</p>
+<ul>
+<li>You have the right to share this number.</li>
+<li>The information you provide is accurate to the best of your knowledge.</li>
+<li>The number is not shared for malicious purposes.</li>
+<li>You understand your contribution will be subject to manual review.</li>
+</ul>
+<div class="warning-box">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+<p>Submitting false, inaccurate, or malicious information may result in a permanent block of your device from contributing.</p>
+</div>
+</div>
 
-            <div class="last-updated">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polyline points="12 6 12 12 16 14"/>
-                </svg>
-                <span id="last-updated-text">Last updated: September 17, 2026</span>
-            </div>
-        </div>
+<div class="section">
+<div class="section-header"><div class="section-number">5</div><h2>Rewards Program</h2></div>
+<p>Kashefhom offers a rewards system based on user contributions:</p>
+<ul>
+<li><strong>Points:</strong> Earned via approved contributions, referrals, and daily challenges.</li>
+<li><strong>Levels:</strong> Progress through Beginner, Trusted, Ambassador, and Partner tiers based on accumulated points.</li>
+<li><strong>Daily Limits:</strong> Each level imposes a daily contribution limit (10, 25, 100, or 500 respectively).</li>
+<li><strong>Rewards Catalog:</strong> Exchange points for visual themes, sounds, badges, and avatar frames.</li>
+<li><strong>No Cash Value:</strong> Points and rewards cannot be exchanged for money or transferred between accounts.</li>
+<li><strong>Right to Adjust:</strong> We reserve the right to modify points, levels, costs, or rewards at any time with reasonable notice.</li>
+</ul>
+</div>
 
-        <div class="lang-toggle">
-            <button id="btn-en" class="active" onclick="showLang('en')">🇬🇧 English</button>
-            <button id="btn-ar" onclick="showLang('ar')">🇰🇼 العربية</button>
-        </div>
+<div class="section">
+<div class="section-header"><div class="section-number">6</div><h2>Referral Program</h2></div>
+<p>Users may share a unique 6-character referral code:</p>
+<ul>
+<li>When a referred user submits their first approved contribution, you earn bonus points.</li>
+<li>Self-referral (using your own code) is prohibited.</li>
+<li>Referral codes cannot be changed once set.</li>
+<li>Abuse of the referral system (fake accounts, bots) will result in permanent suspension.</li>
+<li>Only one referral code can be used per device.</li>
+</ul>
+</div>
 
-        <!-- ==================== English Section (Default) ==================== -->
-        <div id="content-en">
-            <div class="content-card">
+<div class="section">
+<div class="section-header"><div class="section-number">7</div><h2>Number Protection Feature</h2></div>
+<p>The "Protect My Number" feature allows you to hide your number from search results. By using this feature, you agree that:</p>
+<ul>
+<li>You are the legitimate owner of the number you are protecting.</li>
+<li>One device may protect only one number every 72 hours.</li>
+<li>Protection is a passive measure (hiding from search) and does not delete your number from the database.</li>
+<li>For complete deletion, you must use the "Request Number Deletion" feature separately.</li>
+<li>Abuse of this feature may result in a permanent block of your device.</li>
+<li>You can revoke protection at any time from the app.</li>
+</ul>
+<div class="info-box">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+<p><strong>Note:</strong> Protection hides your number from all users across the entire directory. It is not a per-user setting.</p>
+</div>
+</div>
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">1</div>
-                        <h2>Acceptance of Terms</h2>
-                    </div>
-                    <p>By using the <strong>"Kashefhom: Kuwait Number Book"</strong> app, you agree to comply with these terms and conditions. If you do not agree with any of these terms, please stop using the app.</p>
-                </div>
+<div class="section">
+<div class="section-header"><div class="section-number">8</div><h2>Intellectual Property</h2></div>
+<p>All intellectual property rights to the app, including design, logos, source code, themes, sounds, and visual assets, are reserved by the app developers. No part of the app may be copied, modified, or distributed without prior written permission.</p>
+</div>
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">2</div>
-                        <h2>Service Description</h2>
-                    </div>
-                    <p>The "Kashefhom" app provides the following services:</p>
-                    <ul>
-                        <li>Caller ID identification for incoming numbers.</li>
-                        <li>Search the Kuwait number directory by name or number.</li>
-                        <li><strong>Number Protection Feature:</strong> Hide your number from public search results.</li>
-                        <li><strong>Voluntary Contributions:</strong> Add new numbers to the directory using Android's Contact Picker.</li>
-                        <li><strong>Rewards System:</strong> Earn points and redeem them for in-app features (themes, sounds, etc.).</li>
-                        <li>A diverse library of WhatsApp and Telegram stickers.</li>
-                        <li>VIP reports for advanced number analysis.</li>
-                    </ul>
-                </div>
+<div class="section">
+<div class="section-header"><div class="section-number">9</div><h2>Disclaimer</h2></div>
+<p>The app is provided <strong>"as is"</strong> without any express or implied warranties. We are not responsible for:</p>
+<ul>
+<li>The accuracy or completeness of data displayed in the number directory.</li>
+<li>Any direct or indirect damages resulting from the use of the app.</li>
+<li>Service interruptions or temporary technical errors.</li>
+<li>Misuse of the app by users.</li>
+<li>Any incorrect data contributed by users.</li>
+</ul>
+<div class="warning-box">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+<p>Warning: Displayed data may contain errors or outdated information. Please verify sensitive information before relying on it.</p>
+</div>
+</div>
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">3</div>
-                        <h2>Usage Terms</h2>
-                    </div>
-                    <p>When using the app, you agree to:</p>
-                    <ul>
-                        <li>Use the app only for lawful purposes.</li>
-                        <li>Not use the app for harassment, annoyance, or fraud.</li>
-                        <li>Not attempt to hack the app, server, or manipulate its data.</li>
-                        <li>Not use the app for any illegal purpose in Kuwait or any other country.</li>
-                        <li>Not misuse the caller ID feature to harass others.</li>
-                        <li>Not abuse the number protection or contribution features.</li>
-                    </ul>
-                </div>
+<div class="section">
+<div class="section-header"><div class="section-number">10</div><h2>Limitation of Liability</h2></div>
+<p>Under no circumstances shall the developers of "Kashefhom" be liable for any damages exceeding the amount paid to use the app (if any). Your use of the app is at your own risk.</p>
+</div>
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">4</div>
-                        <h2>Voluntary Contributions and Rewards</h2>
-                    </div>
-                    <p>When you contribute a number to the directory, you acknowledge and warrant that you have the right to share this number, and that the information you provide is accurate. You agree that your contributions may be subject to review and audit.</p>
-                    <ul>
-                        <li><strong>Points and Rewards:</strong> The app may grant points and rewards (such as themes, sounds, statistics) for accepted contributions. These rewards are symbolic and cannot be exchanged for cash.</li>
-                        <li><strong>Limits Policy:</strong> The app imposes daily and monthly limits on the number of contributions per device to maintain data quality and prevent abuse.</li>
-                        <li><strong>Right to Refuse:</strong> The app reserves the right to refuse any contribution or block any device if manipulation or abuse is detected.</li>
-                        <li><strong>No Reversal:</strong> Accepted contributions cannot be withdrawn or reversed by the contributor.</li>
-                    </ul>
-                </div>
+<div class="section">
+<div class="section-header"><div class="section-number">11</div><h2>Termination</h2></div>
+<p>We reserve the right to suspend or terminate your access to the app at any time without prior notice if you violate these terms or use the app harmfully.</p>
+</div>
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">5</div>
-                        <h2>Number Protection Feature</h2>
-                    </div>
-                    <p>The "Protect My Number" feature allows you to hide your number from search results. By using this feature, you agree that:</p>
-                    <ul>
-                        <li>You are the legitimate owner of the number you are protecting.</li>
-                        <li>One device may protect only one number every 72 hours.</li>
-                        <li>Protection is a passive measure (hiding from search) and does not delete your number from the database.</li>
-                        <li>For complete deletion, you must use the "Request Number Deletion" feature separately.</li>
-                        <li>Abuse of this feature may result in a permanent block of your device.</li>
-                    </ul>
-                    <div class="info-box">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"/>
-                            <line x1="12" y1="16" x2="12" y2="12"/>
-                            <line x1="12" y1="8" x2="12.01" y2="8"/>
-                        </svg>
-                        <p><strong>Note:</strong> Protection hides your number from all users across the entire directory. It is not a per-user setting.</p>
-                    </div>
-                </div>
+<div class="section">
+<div class="section-header"><div class="section-number">12</div><h2>Governing Law</h2></div>
+<p>These terms are governed by and construed in accordance with the laws of the <strong>State of Kuwait</strong>. The app complies with:</p>
+<ul>
+<li>Law No. 20 of 2014 on Electronic Transactions.</li>
+<li>Law No. 63 of 2015 on Combating Information Technology Crimes.</li>
+<li>CITRA (Communication and Information Technology Regulatory Authority) regulations.</li>
+<li>Google Play Store policies for user data protection.</li>
+</ul>
+<p>Any dispute arising from the use of the app shall be resolved in the competent courts of the State of Kuwait.</p>
+</div>
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">6</div>
-                        <h2>Intellectual Property</h2>
-                    </div>
-                    <p>All intellectual property rights to the app, including design, logos, and source code, are reserved by the app developers. No part of the app may be copied, modified, or distributed without prior written permission.</p>
-                </div>
+<div class="section">
+<div class="section-header"><div class="section-number">13</div><h2>Contact Us</h2></div>
+<p>If you have any questions about these Terms of Use, you can contact us at:</p>
+<a href="mailto:kashefhom.dev@gmail.com" class="email-link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+kashefhom.dev@gmail.com
+</a>
+</div>
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">7</div>
-                        <h2>Disclaimer</h2>
-                    </div>
-                    <p>The app is provided <strong>"as is"</strong> without any express or implied warranties. We are not responsible for:</p>
-                    <ul>
-                        <li>The accuracy or completeness of data displayed in the number directory.</li>
-                        <li>Any direct or indirect damages resulting from the use of the app.</li>
-                        <li>Service interruptions or temporary technical errors.</li>
-                        <li>Misuse of the app by users.</li>
-                        <li>Any incorrect data contributed by users.</li>
-                    </ul>
+</div>
+</div>
 
-                    <div class="warning-box">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                            <line x1="12" y1="9" x2="12" y2="13"/>
-                            <line x1="12" y1="17" x2="12.01" y2="17"/>
-                        </svg>
-                        <p>Warning: Displayed data may contain errors or outdated information. Please verify sensitive information before relying on it.</p>
-                    </div>
-                </div>
+<!-- ARABIC -->
+<div id="content-ar" class="hidden" dir="rtl">
+<div class="content-card">
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">8</div>
-                        <h2>Limitation of Liability</h2>
-                    </div>
-                    <p>Under no circumstances shall the developers of "Kashefhom" be liable for any damages exceeding the amount paid to use the app (if any). Your use of the app is at your own risk.</p>
-                </div>
+<div class="section">
+<div class="section-header"><div class="section-number">1</div><h2>الموافقة على الشروط</h2></div>
+<p>باستخدامك لتطبيق <strong>"كاشفهم: دليل أرقام الكويت"</strong>، فإنك توافق على الالتزام بهذه الشروط والأحكام. إذا كنت لا توافق على أي من هذه الشروط، يرجى التوقف عن استخدام التطبيق.</p>
+</div>
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">9</div>
-                        <h2>Termination</h2>
-                    </div>
-                    <p>We reserve the right to suspend or terminate your access to the app at any time without prior notice if you violate these terms or use the app harmfully.</p>
-                </div>
+<div class="section">
+<div class="section-header"><div class="section-number">2</div><h2>وصف الخدمة</h2></div>
+<p>يقدم تطبيق "كاشفهم" الخدمات التالية:</p>
+<ul>
+<li>كشف هوية المتصلين للأرقام الواردة.</li>
+<li>البحث في دليل أرقام الشركات والخدمات الكويتية.</li>
+<li><strong>ميزة حماية الرقم:</strong> إخفاء رقمك من نتائج البحث العامة.</li>
+<li><strong>المساهمات الطوعية:</strong> إضافة أرقام جديدة للدليل عبر منتقي جهات الاتصال أو الإدخال اليدوي.</li>
+<li><strong>نظام المكافآت:</strong> كسب نقاط واستبدالها بميزات داخل التطبيق (ثيمات، أصوات، شارات، إطارات أفاتار).</li>
+<li><strong>برنامج الإحالة:</strong> دعوة أصدقائك واكسب نقاطاً إضافية.</li>
+<li><strong>الملف الشخصي:</strong> الاسم المستعار والرمز الرمزي.</li>
+<li>مكتبة ملصقات واتساب وتيليجرام.</li>
+<li>تقارير VIP للتحليل المتقدم للأرقام.</li>
+</ul>
+</div>
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">10</div>
-                        <h2>Governing Law and Legal Compliance</h2>
-                    </div>
-                    <p>These terms are governed by and construed in accordance with the laws of the <strong>State of Kuwait</strong>. The app complies with:</p>
-                    <ul>
-                        <li>Law No. 20 of 2014 on Electronic Transactions.</li>
-                        <li>Law No. 63 of 2015 on Combating Information Technology Crimes.</li>
-                        <li>CITRA (Communication and Information Technology Regulatory Authority) regulations.</li>
-                        <li>Google Play Store policies for user data protection.</li>
-                    </ul>
-                    <p>Any dispute arising from the use of the app shall be resolved in the competent courts of the State of Kuwait.</p>
-                </div>
+<div class="section">
+<div class="section-header"><div class="section-number">3</div><h2>شروط الاستخدام</h2></div>
+<p>عند استخدامك للتطبيق، توافق على:</p>
+<ul>
+<li>استخدام التطبيق للأغراض المشروعة فقط.</li>
+<li>عدم استخدام التطبيق للإزعاج أو المضايقة أو الاحتيال.</li>
+<li>عدم محاولة اختراق التطبيق أو السيرفر أو التلاعب ببياناته.</li>
+<li>عدم استخدام التطبيق لأي غرض غير قانوني في دولة الكويت أو أي دولة أخرى.</li>
+<li>عدم إساءة استخدام وظيفة كشف الأرقام لمضايقة الآخرين.</li>
+<li>عدم إساءة استخدام ميزات حماية الأرقام أو المساهمات.</li>
+<li>عدم محاولة الهندسة العكسية أو فك الكود أو استخراج الأسرار.</li>
+</ul>
+</div>
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">11</div>
-                        <h2>Changes to Terms</h2>
-                    </div>
-                    <p>We reserve the right to modify these terms at any time. You will be notified of material changes through the app. Your continued use of the app after modifications means you accept the updated terms.</p>
-                </div>
+<div class="section">
+<div class="section-header"><div class="section-number">4</div><h2>المساهمات الطوعية</h2></div>
+<p>عند مساهمتك بإضافة رقم للدليل، فإنك تقر وتضمن أنك:</p>
+<ul>
+<li>تملك الحق في مشاركة هذا الرقم.</li>
+<li>المعلومات التي تقدمها دقيقة حسب علمك.</li>
+<li>الرقم ليس للإضرار بالآخرين.</li>
+<li>تفهم أن مساهمتك ستخضع للمراجعة اليدوية.</li>
+</ul>
+<div class="warning-box">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+<p>إرسال معلومات كاذبة أو غير دقيقة أو ضارة قد يؤدي إلى حظر دائم لجهازك من المساهمة.</p>
+</div>
+</div>
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">12</div>
-                        <h2>Contact Us</h2>
-                    </div>
-                    <p>If you have any questions about these Terms of Use, you can contact us at:</p>
-                    <a href="mailto:kashefhom.dev@gmail.com" class="email-link">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
-                        kashefhom.dev@gmail.com
-                    </a>
-                </div>
+<div class="section">
+<div class="section-header"><div class="section-number">5</div><h2>برنامج المكافآت</h2></div>
+<p>يقدم كاشفهم نظام مكافآت قائماً على مساهمات المستخدمين:</p>
+<ul>
+<li><strong>النقاط:</strong> تُكتسب عبر المساهمات المقبولة والإحالات والتحديات اليومية.</li>
+<li><strong>المستويات:</strong> تقدم عبر مبتدئ، موثوق، سفير، شريك بناءً على النقاط.</li>
+<li><strong>الحدود اليومية:</strong> كل مستوى له حد يومي (10، 25، 100، أو 500).</li>
+<li><strong>كتالوج المكافآت:</strong> استبدل النقاط بثيمات وأصوات وشارات وإطارات.</li>
+<li><strong>لا قيمة نقدية:</strong> النقاط والمكافآت لا تُستبدل بأموال ولا تُنقل بين الحسابات.</li>
+<li><strong>حق التعديل:</strong> نحتفظ بحق تعديل النقاط والمستويات والتكاليف في أي وقت.</li>
+</ul>
+</div>
 
-            </div>
-        </div>
+<div class="section">
+<div class="section-header"><div class="section-number">6</div><h2>برنامج الإحالة</h2></div>
+<p>يمكن للمستخدمين مشاركة كود إحالة فريد من 6 أحرف:</p>
+<ul>
+<li>عند إرسال أول مساهمة مقبولة من المُحال، تحصل على نقاط إضافية.</li>
+<li>الإحالة الذاتية (استخدام كودك الخاص) محظورة.</li>
+<li>لا يمكن تغيير كود الإحالة بعد تعيينه.</li>
+<li>إساءة استخدام النظام (حسابات وهمية، بوتات) تؤدي لحظر دائم.</li>
+<li>يمكن استخدام كود إحالة واحد فقط لكل جهاز.</li>
+</ul>
+</div>
 
-        <!-- ==================== Arabic Section ==================== -->
-        <div id="content-ar" class="hidden" dir="rtl">
-            <div class="content-card">
+<div class="section">
+<div class="section-header"><div class="section-number">7</div><h2>ميزة حماية الرقم</h2></div>
+<p>تتيح لك ميزة "حماية رقمي" إخفاء رقمك من نتائج البحث. باستخدامك لهذه الميزة، توافق على:</p>
+<ul>
+<li>أنك المالك الشرعي للرقم الذي تحميه.</li>
+<li>يُسمح للجهاز الواحد بحماية رقم واحد فقط كل 72 ساعة.</li>
+<li>الحماية إجراء سلبي ولا تحذف رقمك من قاعدة البيانات.</li>
+<li>للحذف الكامل، استخدم ميزة "طلب حذف رقمي" منفصلة.</li>
+<li>إساءة الاستخدام قد تؤدي لحظر دائم لجهازك.</li>
+<li>يمكنك إلغاء الحماية في أي وقت من التطبيق.</li>
+</ul>
+<div class="info-box">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+<p><strong>ملاحظة:</strong> الحماية تخفي رقمك من جميع المستخدمين في الدليل بأكمله.</p>
+</div>
+</div>
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">1</div>
-                        <h2>الموافقة على الشروط</h2>
-                    </div>
-                    <p>باستخدامك لتطبيق <strong>"كاشفهم: دليل أرقام الكويت"</strong>، فإنك توافق على الالتزام بهذه الشروط والأحكام. إذا كنت لا توافق على أي من هذه الشروط، يرجى التوقف عن استخدام التطبيق.</p>
-                </div>
+<div class="section">
+<div class="section-header"><div class="section-number">8</div><h2>الملكية الفكرية</h2></div>
+<p>جميع حقوق الملكية الفكرية للتطبيق، بما في ذلك التصميم والشعارات والكود والثيمات والأصوات، محفوظة لمطوري التطبيق. لا يجوز نسخ أو تعديل أو توزيع أي جزء دون إذن كتابي مسبق.</p>
+</div>
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">2</div>
-                        <h2>وصف الخدمة</h2>
-                    </div>
-                    <p>يقدم تطبيق "كاشفهم" الخدمات التالية:</p>
-                    <ul>
-                        <li>كشف هوية المتصلين للأرقام الواردة.</li>
-                        <li>البحث في دليل أرقام الشركات والخدمات الكويتية.</li>
-                        <li><strong>ميزة حماية الرقم:</strong> إخفاء رقمك من نتائج البحث العامة.</li>
-                        <li><strong>المساهمات الطوعية:</strong> إضافة أرقام جديدة للدليل عبر منتقي جهات الاتصال.</li>
-                        <li><strong>نظام المكافآت:</strong> كسب نقاط واستبدالها بميزات داخل التطبيق (ثيمات، أصوات، إلخ).</li>
-                        <li>مكتبة ملصقات واتساب وتيليجرام.</li>
-                        <li>تقارير VIP للتحليل المتقدم للأرقام.</li>
-                    </ul>
-                </div>
+<div class="section">
+<div class="section-header"><div class="section-number">9</div><h2>إخلاء المسؤولية</h2></div>
+<p>يتم تقديم التطبيق <strong>"كما هو"</strong> دون أي ضمانات. لا نتحمل أي مسؤولية عن:</p>
+<ul>
+<li>دقة أو اكتمال البيانات المعروضة.</li>
+<li>أي أضرار مباشرة أو غير مباشرة ناتجة عن الاستخدام.</li>
+<li>انقطاع الخدمة أو الأخطاء التقنية.</li>
+<li>سوء استخدام التطبيق من قبل المستخدمين.</li>
+<li>أي بيانات خاطئة يساهم بها المستخدمون.</li>
+</ul>
+<div class="warning-box">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+<p>تنبيه: البيانات المعروضة قد تحتوي على أخطاء أو معلومات قديمة. يرجى التحقق قبل الاعتماد عليها.</p>
+</div>
+</div>
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">3</div>
-                        <h2>شروط الاستخدام</h2>
-                    </div>
-                    <p>عند استخدامك للتطبيق، توافق على:</p>
-                    <ul>
-                        <li>استخدام التطبيق للأغراض المشروعة فقط.</li>
-                        <li>عدم استخدام التطبيق للإزعاج أو المضايقة أو الاحتيال.</li>
-                        <li>عدم محاولة اختراق التطبيق أو السيرفر أو التلاعب ببياناته.</li>
-                        <li>عدم استخدام التطبيق لأي غرض غير قانوني في دولة الكويت أو أي دولة أخرى.</li>
-                        <li>عدم إساءة استخدام وظيفة كشف الأرقام لمضايقة الآخرين.</li>
-                        <li>عدم إساءة استخدام ميزات حماية الأرقام أو المساهمات.</li>
-                    </ul>
-                </div>
+<div class="section">
+<div class="section-header"><div class="section-number">10</div><h2>حدود المسؤولية</h2></div>
+<p>في أي حال، لن يكون مطورو "كاشفهم" مسؤولين عن أي أضرار تزيد عن المبلغ المدفوع (إن وجد). استخدامك للتطبيق على مسؤوليتك الشخصية.</p>
+</div>
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">4</div>
-                        <h2>المساهمات الطوعية والمكافآت</h2>
-                    </div>
-                    <p>عند مساهمتك بإضافة رقم للدليل، فإنك تقر وتضمن أنك تملك الحق في مشاركة هذا الرقم، وأن المعلومات التي تقدمها صحيحة. أنت توافق على أن مساهماتك قد تخضع للمراجعة والتدقيق.</p>
-                    <ul>
-                        <li><strong>النقاط والمكافآت:</strong> يحق للتطبيق منح نقاط ومكافآت (مثل الثيمات، الأصوات، الإحصاءات) مقابل المساهمات المقبولة. هذه المكافآت رمزية وغير قابلة للاستبدال بأموال نقدية.</li>
-                        <li><strong>سياسة الحدود:</strong> يفرض التطبيق حدوداً يومية وشهرية على عدد المساهمات لكل جهاز، للحفاظ على جودة البيانات ومنع الإساءة.</li>
-                        <li><strong>الحق في الرفض:</strong> يحتفظ التطبيق بالحق في رفض أي مساهمة أو حظر أي جهاز إذا ثبت وجود تلاعب أو إساءة استخدام.</li>
-                        <li><strong>عدم التراجع:</strong> لا يمكن للمساهم سحب أو عكس مساهماته المقبولة.</li>
-                    </ul>
-                </div>
+<div class="section">
+<div class="section-header"><div class="section-number">11</div><h2>الإنهاء</h2></div>
+<p>نحتفظ بالحق في تعليق أو إنهاء وصولك للتطبيق في أي وقت دون إشعار مسبق إذا انتهكت هذه الشروط.</p>
+</div>
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">5</div>
-                        <h2>ميزة حماية الرقم</h2>
-                    </div>
-                    <p>تتيح لك ميزة "حماية رقمي" إخفاء رقمك من نتائج البحث. باستخدامك لهذه الميزة، فإنك توافق على:</p>
-                    <ul>
-                        <li>أنك المالك الشرعي للرقم الذي تحميه.</li>
-                        <li>يُسمح للجهاز الواحد بحماية رقم واحد فقط كل 72 ساعة.</li>
-                        <li>الحماية إجراء سلبي (إخفاء من البحث) ولا تحذف رقمك من قاعدة البيانات.</li>
-                        <li>للحذف الكامل، يجب استخدام ميزة "طلب حذف رقمي" بشكل منفصل.</li>
-                        <li>قد يؤدي إساءة استخدام هذه الميزة إلى حظر دائم لجهازك.</li>
-                    </ul>
-                    <div class="info-box">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"/>
-                            <line x1="12" y1="16" x2="12" y2="12"/>
-                            <line x1="12" y1="8" x2="12.01" y2="8"/>
-                        </svg>
-                        <p><strong>ملاحظة:</strong> الحماية تخفي رقمك من جميع المستخدمين في الدليل بأكمله. وهي ليست إعداداً لكل مستخدم على حدة.</p>
-                    </div>
-                </div>
+<div class="section">
+<div class="section-header"><div class="section-number">12</div><h2>القانون المطبق</h2></div>
+<p>تخضع هذه الشروط لقوانين <strong>دولة الكويت</strong>. يلتزم التطبيق بـ:</p>
+<ul>
+<li>قانون المعاملات الإلكترونية رقم 20 لسنة 2014.</li>
+<li>قانون مكافحة جرائم تقنية المعلومات رقم 63 لسنة 2015.</li>
+<li>لوائح هيئة تنظيم الاتصالات (CITRA).</li>
+<li>سياسات Google Play.</li>
+</ul>
+<p>أي نزاع يُحل في المحاكم المختصة في دولة الكويت.</p>
+</div>
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">6</div>
-                        <h2>الملكية الفكرية</h2>
-                    </div>
-                    <p>جميع حقوق الملكية الفكرية للتطبيق، بما في ذلك التصميم والشعارات والكود المصدري، محفوظة لمطوري التطبيق. لا يجوز نسخ أو تعديل أو توزيع أي جزء من التطبيق دون إذن كتابي مسبق.</p>
-                </div>
+<div class="section">
+<div class="section-header"><div class="section-number">13</div><h2>اتصل بنا</h2></div>
+<p>إذا كان لديك أي أسئلة حول شروط الاستخدام:</p>
+<a href="mailto:kashefhom.dev@gmail.com" class="email-link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+kashefhom.dev@gmail.com
+</a>
+</div>
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">7</div>
-                        <h2>إخلاء المسؤولية</h2>
-                    </div>
-                    <p>يتم تقديم التطبيق <strong>"كما هو"</strong> دون أي ضمانات صريحة أو ضمنية. لا نتحمل أي مسؤولية عن:</p>
-                    <ul>
-                        <li>دقة أو اكتمال البيانات المعروضة في دليل الأرقام.</li>
-                        <li>أي أضرار مباشرة أو غير مباشرة ناتجة عن استخدام التطبيق.</li>
-                        <li>انقطاع الخدمة أو الأخطاء التقنية المؤقتة.</li>
-                        <li>سوء استخدام التطبيق من قبل المستخدمين.</li>
-                        <li>أي بيانات خاطئة يساهم بها المستخدمون.</li>
-                    </ul>
+</div>
+</div>
 
-                    <div class="warning-box">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                            <line x1="12" y1="9" x2="12" y2="13"/>
-                            <line x1="12" y1="17" x2="12.01" y2="17"/>
-                        </svg>
-                        <p>تنبيه: البيانات المعروضة قد تحتوي على أخطاء أو معلومات قديمة. يرجى التحقق من المعلومات الحساسة قبل الاعتماد عليها.</p>
-                    </div>
-                </div>
+<footer>
+<span class="footer-logo">كاشفهم • Kashefhom</span>
+<p>© 2026 Kashefhom. All rights reserved.</p>
+</footer>
+</div>
 
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">8</div>
-                        <h2>حدود المسؤولية</h2>
-                    </div>
-                    <p>في أي حال من الأحوال، لن يكون مطورو "كاشفهم" مسؤولين عن أي أضرار تزيد عن المبلغ المدفوع لاستخدام التطبيق (إن وجد). استخدامك للتطبيق يكون على مسؤوليتك الشخصية.</p>
-                </div>
-
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">9</div>
-                        <h2>الإنهاء</h2>
-                    </div>
-                    <p>نحتفظ بالحق في تعليق أو إنهاء وصولك إلى التطبيق في أي وقت دون إشعار مسبق، إذا انتهكت هذه الشروط أو استخدمت التطبيق بشكل ضار.</p>
-                </div>
-
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">10</div>
-                        <h2>القانون المطبق والامتثال القانوني</h2>
-                    </div>
-                    <p>تخضع هذه الشروط وتفسر وفقاً لقوانين <strong>دولة الكويت</strong>. يلتزم التطبيق بـ:</p>
-                    <ul>
-                        <li>قانون المعاملات الإلكترونية رقم 20 لسنة 2014.</li>
-                        <li>قانون مكافحة جرائم تقنية المعلومات رقم 63 لسنة 2015.</li>
-                        <li>لوائح هيئة تنظيم الاتصالات (CITRA).</li>
-                        <li>سياسات Google Play لحماية بيانات المستخدمين.</li>
-                    </ul>
-                    <p>أي نزاع ينشأ عن استخدام التطبيق سيتم حله في المحاكم المختصة في دولة الكويت.</p>
-                </div>
-
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">11</div>
-                        <h2>التعديلات على الشروط</h2>
-                    </div>
-                    <p>نحتفظ بالحق في تعديل هذه الشروط في أي وقت. سيتم إشعارك بالتغييرات الجوهرية عبر التطبيق. استمرار استخدامك للتطبيق بعد التعديلات يعني موافقتك على الشروط المحدثة.</p>
-                </div>
-
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-number">12</div>
-                        <h2>اتصل بنا</h2>
-                    </div>
-                    <p>إذا كان لديك أي أسئلة حول شروط الاستخدام، يمكنك التواصل معنا على:</p>
-                    <a href="mailto:kashefhom.dev@gmail.com" class="email-link">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
-                        kashefhom.dev@gmail.com
-                    </a>
-                </div>
-
-            </div>
-        </div>
-
-        <footer>
-            <span class="footer-logo">كاشفهم • Kashefhom</span>
-            <p>© 2026 Kashefhom. All rights reserved.</p>
-        </footer>
-
-    </div>
-
-    <script>
-        function showLang(lang) {
-            const arContent = document.getElementById('content-ar');
-            const enContent = document.getElementById('content-en');
-            const btnAr = document.getElementById('btn-ar');
-            const btnEn = document.getElementById('btn-en');
-            const heroTitle = document.getElementById('hero-title');
-            const heroSubtitle = document.getElementById('hero-subtitle');
-            const lastUpdated = document.getElementById('last-updated-text');
-            const html = document.documentElement;
-
-            if (lang === 'en') {
-                enContent.classList.remove('hidden');
-                arContent.classList.add('hidden');
-                btnEn.classList.add('active');
-                btnAr.classList.remove('active');
-                html.lang = 'en';
-                html.dir = 'ltr';
-                heroTitle.textContent = 'Terms of Use';
-                heroSubtitle.textContent = 'Clear and fair usage agreement';
-                lastUpdated.textContent = 'Last updated: September 17, 2026';
-            } else {
-                arContent.classList.remove('hidden');
-                enContent.classList.add('hidden');
-                btnAr.classList.add('active');
-                btnEn.classList.remove('active');
-                html.lang = 'ar';
-                html.dir = 'rtl';
-                heroTitle.textContent = 'شروط الاستخدام';
-                heroSubtitle.textContent = 'اتفاقية استخدام واضحة وعادلة';
-                lastUpdated.textContent = 'آخر تحديث: 17 سبتمبر 2026';
-            }
-
-            document.querySelectorAll('.section').forEach((el, i) => {
-                el.style.animation = 'none';
-                setTimeout(() => {
-                    el.style.animation = `fadeInUp 0.6s ease-out ${0.1 + i * 0.05}s forwards`;
-                }, 10);
-            });
-        }
-
-        window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY;
-            const hero = document.querySelector('.hero');
-            if (hero && scrolled < 400) {
-                hero.style.transform = `translateY(${scrolled * 0.15}px)`;
-                hero.style.opacity = Math.max(0, 1 - scrolled / 500);
-            }
-        }, { passive: true });
-    </script>
+<script>
+function showLang(lang){
+const arContent=document.getElementById('content-ar'),enContent=document.getElementById('content-en');
+const btnAr=document.getElementById('btn-ar'),btnEn=document.getElementById('btn-en');
+const heroTitle=document.getElementById('hero-title'),heroSubtitle=document.getElementById('hero-subtitle');
+const lastUpdated=document.getElementById('last-updated-text'),html=document.documentElement;
+if(lang==='en'){
+enContent.classList.remove('hidden');arContent.classList.add('hidden');
+btnEn.classList.add('active');btnAr.classList.remove('active');
+html.lang='en';html.dir='ltr';
+heroTitle.textContent='Terms of Use';
+heroSubtitle.textContent='Clear and fair usage agreement';
+lastUpdated.textContent='Last updated: September 17, 2026';
+}else{
+arContent.classList.remove('hidden');enContent.classList.add('hidden');
+btnAr.classList.add('active');btnEn.classList.remove('active');
+html.lang='ar';html.dir='rtl';
+heroTitle.textContent='شروط الاستخدام';
+heroSubtitle.textContent='اتفاقية استخدام واضحة وعادلة';
+lastUpdated.textContent='آخر تحديث: 17 سبتمبر 2026';
+}
+document.querySelectorAll('.section').forEach((el,i)=>{el.style.animation='none';setTimeout(()=>{el.style.animation=`fadeInUp 0.6s ease-out ${0.1+i*0.05}s forwards`},10)});
+}
+</script>
 </body>
 </html>
